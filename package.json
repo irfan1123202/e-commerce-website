@@ -1,0 +1,19 @@
+{
+  "name": "easybuy-store",
+  "version": "1.0.0",
+  "description": "Easy Buy - Modular Online Store (SaiKet Systems Internship Task 2)",
+  "type": "module",
+  "main": "js/app.js",
+  "scripts": {
+    "start": "npx -y serve -p 3000 .",
+    "dev": "npx -y serve -p 3000 ."
+  },
+  "keywords": [
+    "ecommerce",
+    "modular-javascript",
+    "es6-modules",
+    "tailwindcss",
+    "internship"
+  ],
+  "license": "ISC"
+}

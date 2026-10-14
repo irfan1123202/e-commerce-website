@@ -1,0 +1,94 @@
+/* EasyBuy Custom Styles and Micro-Animations */
+
+:root {
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+}
+
+/* Entrance animation for product cards */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.card-in {
+  animation: rise 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-in:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px -8px rgba(242, 115, 58, 0.35);
+}
+
+/* Micro-interaction bounce/pop animation */
+@keyframes pop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.35); }
+  100% { transform: scale(1); }
+}
+
+.bump {
+  animation: pop 0.45s ease;
+}
+
+/* Cart item entrance animation */
+@keyframes slidein {
+  from {
+    opacity: 0;
+    transform: translateX(26px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.item-in {
+  animation: slidein 0.35s ease backwards;
+}
+
+/* Fade animation */
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+#none:not(.hidden) {
+  animation: fade 0.4s ease;
+}
+
+/* Search bar focus states */
+#search {
+  transition: box-shadow 0.25s, border-color 0.25s, flex-grow 0.25s;
+}
+
+#search:focus {
+  outline: none;
+  border-color: #f2733a;
+  box-shadow: 0 0 0 4px #ffd3b9;
+}
+
+/* Accessibility: respect user preferences for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
